@@ -45,8 +45,6 @@ function App() {
             <div className="flex gap-2 my-4">
                 {tours.map(tour =>(
                     <TourCard key={tour.id} image={tour.image} title={tour.title} />
-                    <Button key={tour.id} label="Dat ngay" />
-                    <Button key={tour.id} label="Xem chi tiet" />
                 ))}
             </div>
             <Footer/>
