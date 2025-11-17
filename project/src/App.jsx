@@ -1,8 +1,8 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-
+import Header from './components/Header'
+import Footer from './components/Footer';
+import TourCard from './components/TourCard';
+import Banner from './components/Banner';
+import Button from './components/Button';
 function App() {
     const tours = [
         {
@@ -26,12 +26,13 @@ function App() {
             image: 'https://pystravel.vn/_next/image?url=https%3A%2F%2Fbooking.pystravel.vn%2Fuploads%2Fposts%2Favatar%2F1759371709.jpg&w=640&q=75'
         }
     ]
-    
     // JSX : HTML + JS nam trong return boc trong 1 the bat ky <></>
     return (
         <div className="App">
-            <h1 className="text-3xl font-bold text-blue-600">
-                Tour Management System
+            <Header />
+            {/* <Banner /> */}
+            <h1 className="text-3xl font-bold text-blue-600 text-center my-4">
+                Danh sach tour du lich noi bat
             </h1>
             <h2 className="uppercase text-center text-2xl font-semibold">
                 Kham pha san pham vietravel
@@ -43,47 +44,12 @@ function App() {
             </p>
             <div className="flex gap-2 my-4">
                 {tours.map(tour =>(
-                <div key={tour.id}>
-                    <img src={tour.image} alt={tour.title} width={500} />
-                    <h3 className="font-semibold">{tour.title}</h3>
-            </div>
+                    <TourCard key={tour.id} image={tour.image} title={tour.title} />
+                    <Button key={tour.id} label="Dat ngay" />
+                    <Button key={tour.id} label="Xem chi tiet" />
                 ))}
-                {/* <div>
-                    <img src="https://pystravel.vn/
-                    _next/image?url=https%3A%2F%2Fbooking.pystravel.vn
-                    %2Fuploads%2Fposts%2Favatar%2F1759371709.jpg&w=640&q=75"></img>
-                    <p>
-                        Tour du lich Bac Kinh - Thuong Hai - Thanh Do
-                        xem CKTG giua T1 - KT Rolster gia 20 trieu bao gom ca ve xem hang A
-                    </p>
-                </div>
-                <div>
-                    <img src="https://pystravel.vn/
-                    _next/image?url=https%3A%2F%2Fbooking.pystravel.vn
-                    %2Fuploads%2Fposts%2Favatar%2F1759371709.jpg&w=640&q=75"></img>
-                    <p>
-                        Tour du lich Bac Kinh - Thuong Hai - Thanh Do
-                        xem CKTG giua T1 - KT Rolster gia 20 trieu bao gom ca ve xem hang A
-                    </p>
-                </div>
-                <div>
-                    <img src="https://pystravel.vn/
-                    _next/image?url=https%3A%2F%2Fbooking.pystravel.vn
-                    %2Fuploads%2Fposts%2Favatar%2F1759371709.jpg&w=640&q=75"></img>
-                    <p>
-                        Tour du lich Bac Kinh - Thuong Hai - Thanh Do
-                        xem CKTG giua T1 - KT Rolster gia 20 trieu bao gom ca ve xem hang A
-                    </p>
-                </div>
-                <div>
-                    <img src="https://pystravel.vn/
-                    _next/image?url=https%3A%2F%2Fbooking.pystravel.vn
-                    %2Fuploads%2Fposts%2Favatar%2F1759371709.jpg&w=640&q=75"></img>
-                    <p>
-                        Tour du lich Bac Kinh - Thuong Hai - Thanh Do
-                        xem CKTG giua T1 - KT Rolster gia 20 trieu bao gom ca ve xem hang A
-                    </p> */}
-               </div>
+            </div>
+            <Footer/>
             </div>
     );
 }
