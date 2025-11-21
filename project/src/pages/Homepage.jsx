@@ -3,10 +3,14 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Heading from "../components/Heading";
 import Banner from "../components/Banner";
+import { useState } from "react";
+import Button from "../components/Button";
 
 function Homepage() {
-    const tours = [
-        {
+    // mock data 
+    const [tours, setTours] = useState([]);
+    const handleLoadData = () => {setTours([
+              {
             id: 1,
             title: 'Tour du lich London 6 ngay 5 dem - kham pha ve dep cua dat nuoc Anh Quoc den thanh pho Manchester va London',
             image: '/images/Anh3.jpg',
@@ -54,19 +58,21 @@ function Homepage() {
             image: '/images/Anh2.jpg',
             price: '33.000.000đ'
         }
-    ];
-
+    ]);
+    };
+    
     return (
         <div className="App font-sans text-gray-800">
-            
-            <Header />
+            <div className="min-h-screen flex flex-col justify-between">
+                <Header />
                 <Banner />
+        <Button label="Load data" onClick={handleLoadData}/>
+        </div>
             <section className="py-12 px-4 md:px-16 bg-gray-50">
                 <Heading 
                     title="Danh sách tour du lịch nổi bật" 
                     subtitle="Khám phá sản phẩm Vietravel"
                 />
-
                 <p className="text-center text-gray-600 mt-2 mb-8">
                     Tận hưởng trải nghiệm du lịch tuyệt vời cùng các tour được lựa chọn kỹ lưỡng.
                 </p>
@@ -82,8 +88,6 @@ function Homepage() {
                     ))}
                 </div>
             </section>
-
-            
             <section className="py-12 text-center bg-blue-800">
                 <h2 className="text-3xl font-bold mb-4 text-white">Bạn đã sẵn sàng cho chuyến đi tiếp theo?</h2>
                 <p className="mb-6 text-white">Đặt tour ngay hôm nay để nhận nhiều ưu đãi hấp dẫn!</p>
@@ -91,8 +95,6 @@ function Homepage() {
                     Đặt Tour Ngay
                 </button>
             </section>
-
-           
             <Footer />
         </div>
     );

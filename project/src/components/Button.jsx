@@ -1,12 +1,8 @@
-function Button({ label = 'Default label', children }) {
-
-  const clicktour = () => {
-    alert("Bạn đã click vào nút: " + label);
-  };
+function Button({ label = 'Default label', children , onClick }) {
 
   return (
     <button
-      onClick={clicktour}
+      onClick={onClick}
       className="
         px-4 py-2 
         bg-white-400 
