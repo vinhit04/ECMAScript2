@@ -1,23 +1,43 @@
+export default function Header() {
+  return (
+    <nav className="bg-blue-700 shadow-xl rounded-2xl px-8 py-4 my-6">
+      <ul className="flex items-center justify-between text-white font-semibold text-lg">
 
-export default function Header() { 
-    return (
-        <nav className="my-2">
-            <ul className="flex items-center justify-around font-semibold text-lg text-blue-600">
-                <li>
-                    <a href="/">Home</a></li>
-                <li>
-                    <a href="/">About</a></li>
-                <li>
-                    <a href="/">Services</a></li>
-                <li>
-                    <a href="/">Booking</a></li>
-                <li>
-                    <a href="/">Contact</a></li>
-                <li>
-                    <a href="/">Login</a></li>
-                <li>
-                    <a href="/">Register</a></li>
-            </ul>
-        </nav>
-    );
+        {/* Logo */}
+        <li className="flex items-center gap-3 cursor-pointer">
+          <img
+            src="/images/AnhIcon.png"
+            alt="Company Logo"
+            className="w-[55px] h-auto object-contain drop-shadow-lg"
+          />
+        </li>
+
+        {/* Menu */}
+        <li className="flex items-center gap-8">
+          {["Home", "About", "Services", "Booking", "Contact", "Login", "Register"].map((item) => (
+            <a
+              key={item}
+              href="/"
+              className="px-3 py-2 rounded-xl transition-all duration-200 
+                         hover:bg-blue-300 hover:border hover:border-white"
+            >
+              {item}
+            </a>
+          ))}
+        </li>
+
+        {/* Search Button */}
+        <li>
+          <button className="p-2 rounded-full hover:bg-blue-300 transition-all duration-200">
+            <img
+              src="images/icontimkiem.jpg"
+              alt="Search"
+              className="w-6 h-6 object-contain invert"
+            />
+          </button>
+        </li>
+
+      </ul>
+    </nav>
+  );
 }
